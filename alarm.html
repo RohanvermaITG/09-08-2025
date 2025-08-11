@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<audio controls autoplay muted>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+</audio>
+    <script>
+        let Userhours = +prompt("enter hours to wake up ");
+        let Userminutes = +prompt("enter minutes to wake up ");
+        // let userSeconds=+prompt("enter the second")
+        console.log(typeof Userhours);
+        
+        let date = new Date();
+        setInterval(() => {
+        let second = date.getSeconds();
+        let minutes = date.getMinutes();
+        let hours = date.getHours();
+        console.log(second,minutes,hours);
+
+        if(minutes===Userminutes && hours===Userhours){
+            console.log("ring")
+        }
+        },1000)
+    </script>
+
+</body>
+
+</html>
