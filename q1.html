@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Validation</title>
+    <style>
+        p {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="textinput">
+    <p id="error-msg">Input must be at least 3 characters</p>
+    <button onclick="checkempty()">Submit</button>
+    <script>
+        // 1. Name Validation
+        // Write a function to validate a user's name. The name should contain only alphabetic characters (a–z or A–Z) and spaces, and it must be at least 2 characters long.
+
+        let para = document.getElementById("error-msg");
+        let input = document.getElementById("textinput");
+
+
+
+        function checkempty() {
+            let inputval = input.value.trim()
+            if (isvalide(inputval)) {
+                // alert("valid name")
+                para.style.display = "block"
+                para.style.color = "black"
+                para.textContent = "code is working"
+                return true
+            } else {
+                para.style.display = "block"
+                    // para.style.color = "black"
+                para.textContent = "name is invalid working"
+                alert("invalid name")
+            }
+
+        }
+
+        function isvalide(value) {
+            if (value.length < 2) {
+                return false;
+
+            }
+            for (let index = 0; index < value.length; index++) {
+                let loopvalue = value[index]
+                if (!(loopvalue >= 'a' && loopvalue <= 'z') || (loopvalue >= 'A' && loopvalue <= 'Z')) {
+                    console.log(loopvalue);
+
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

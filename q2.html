@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Number Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f2f2f2;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        input,
+        button {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Validate Mobile Number</h2>
+        <input type="text" id="mobileNumber" placeholder="Enter 10-digit mobile number" />
+        <button id="subBtn">Validate</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let number = null;
+        const mobileNumber = document.querySelector("#mobileNumber");
+        const subBtn = document.querySelector("#subBtn");
+        subBtn.addEventListener("click", (e) => {
+                validateMobileNumber(mobileNumber.value);
+            })
+            // mobileNumber.addEventListener("change", (e) => {
+            //     number = e.target.value
+            //     validateMobileNumber(e.target.value);
+            // })
+
+        function validateMobileNumber(number) {
+            let num = String(number);
+
+            let length = num.length;
+            if (length > 10 || length < 10) {
+                alert("length")
+                return false;
+            }
+
+            if (num[0] === '0') {
+                alert("0")
+                return false;
+            }
+
+            for (let i = 0; i < num.length; i++) {
+                if (num[i] < '0' || num[i] > '9') {
+                    alert("please enter only numbber")
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

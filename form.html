@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2> user form </h2>
+
+    <form action="" id="form">
+
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+
+
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+
+        <label for="Email">Email</label><br>
+        <input type="text" id="mail" name="mail"><br>
+
+        <label for="fname">password</label><br>
+        <input type="password" id="pass" name="pass"><br><br>
+
+        <select name="select" id="selecoption"> select option
+
+
+        </select>
+        <button type="submit"> submit form </button>
+
+
+    </form>
+
+    <script>
+        let fom = document.getElementById("form")
+        let inpit = document.getElementsByTagName("input");
+        let sel = document.getElementById("selecoption");
+        for (let i = 1; i <= 100; i++) {
+            let option = document.createElement("option");
+            // option.value = i;
+            option.innerText = i;
+            sel.appendChild(option)
+        }
+
+
+        Array.from(inpit).forEach((ele) => {
+            ele.addEventListener("input", (event) => {
+
+                let key = event.target.name;
+                let value = event.target.value;
+
+                dataobj(dataform, key, value);
+                console.log(dataform)
+            })
+        })
+
+
+        let dataform = {}
+
+        function dataobj(Object, key, value) {
+            Object[key] = value
+            return Object;
+        }
+
+        fom.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // console.log("Object :", event.target);
+            // console.log("Object :", event);
+            // let inpit = document.getElementsByTagName("input")
+            // Array.from(inpit).forEach(element => {
+            // console.log( element.value)
+            // dataform[element.name] =  element.value  
+
+            // })
+            console.log(dataform)
+        })
+        sel.addEventListener("change", (event) => {
+
+            let key = event.target.name;
+            // let value = event.target.value;
+
+            dataobj(dataform, key, value);
+            console.log(dataform)
+        })
+    </script>
+</body>
+
+</html>

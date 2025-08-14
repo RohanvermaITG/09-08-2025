@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Input Validation</title>
+        <style>
+            p {
+                display: none;
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <input type="text" id="textinput">
+        <p id="error-msg">Input must be at least 3 characters</p>
+        <button onclick="inputValidation()">Submit</button>
+        <script>
+            let para = document.getElementById("error-msg");
+            let input = document.getElementById("textinput");
+
+            function inputValidation() {
+                let vllueofinput = input.value.trim()
+
+                cheeckvalid(vllueofinput);
+                ckeckLength(vllueofinput)
+            }
+
+            function cheeckvalid(values) {
+                for (let index = 0; index < values.length; index++) {
+
+                    if ((values[index] >= 'a' && values[index] <= 'z') || (values[index] >= 'A' && values[index] <= "Z")) {
+                        console.log("it's working");
+                    } else {
+                        alert("enter the valid name")
+                    }
+                }
+            }
+
+            function ckeckLength(values) {
+
+                if (values.length > 2) {
+
+                } else {
+                    alert("to short")
+                }
+            }
+
+            function checkempty() {
+                if (value.length == 0) {
+                    return false;
+                }
+                return true;
+            }
+
+            function checklength() {
+                if ((value >= 'a' && value <= 'z') || (value >= 'A' && value <= 'Z')) {
+                    return true;
+                }
+                return false
+            }
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>

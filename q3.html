@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button onclick="validatePinCode()">Submit</button>
+    <script>
+        function validatePinCode(pin) {
+
+            let pinStr = String(pin);
+
+
+            if (pinStr.length !== 6) {
+                alert("INVALID")
+                return false;
+            }
+
+            if (pinStr[0] === '0') {
+                alert("INVALID")
+
+                return false;
+            }
+
+            for (let i = 0; i < pinStr.length; i++) {
+                if (pinStr[i] < '0' || pinStr[i] > '9') {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
